@@ -75,7 +75,21 @@
                             <outlet property="delegate" destination="uHx-c8-bht" id="Fex-dj-ycG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Ugj-ZE-hd2"/>
+                    <navigationItem key="navigationItem" id="Ugj-ZE-hd2">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="li5-nT-JQK">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="agI-F1-puM">
+                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Goal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addGoal:" destination="uHx-c8-bht" eventType="touchUpInside" id="ED7-II-96e"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59g-1Q-UFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
