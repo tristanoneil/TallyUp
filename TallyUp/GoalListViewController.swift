@@ -1,14 +1,16 @@
 //
-//  ViewController.swift
+//  GoalListViewController.swift
 //  TallyUp
 //
-//  Created by Tristan O'Neil on 9/19/14.
+//  Created by Tristan O'Neil on 9/23/14.
 //  Copyright (c) 2014 Tristan O'Neil. All rights reserved.
 //
 
 import UIKit
 
-class GoalsController: UITableViewController {
+class GoalListViewController: UIViewController {
+
+    @IBOutlet weak var goalsTableView: UITableView!
 
     var goals = Goal.allObjects()
     let realm = RLMRealm.defaultRealm()
@@ -26,19 +28,20 @@ class GoalsController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
     //
     // Returns the number of rows in the Table View, based on the number of Goals.
     //
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Int(goals.count)
     }
 
     //
     // Initializes Table View with Goal instances from Realm.
     //
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GoalCell", forIndexPath: indexPath) as GoalCell
         let goal = goals.objectAtIndex(UInt(indexPath.row)) as Goal
 
@@ -61,6 +64,6 @@ class GoalsController: UITableViewController {
         }
 
         goals = Goal.allObjects()
-        tableView.reloadData()
+        goalsTableView.reloadData()
     }
 }
