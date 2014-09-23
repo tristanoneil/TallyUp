@@ -10,13 +10,7 @@ import UIKit
 
 class GoalsController: UITableViewController {
 
-    let goals = [
-        "Eat More Apples",
-        "Run More",
-        "Blog More",
-        "Drink More Water",
-        "Play Guitar More"
-    ]
+    var goals = Goal.allObjects()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +20,22 @@ class GoalsController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
 
+    //
+    // Returns the number of rows in the Table View, based on the number of Goals.
+    //
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.goals.count
+        return Int(goals.count)
     }
 
+    //
+    // Initializes Table View with Goal instances from Realm.
+    //
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("GoalCell", forIndexPath: indexPath) as GoalCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("GoalCell", forIndexPath: indexPath) as GoalCell
+        let goal = goals.objectAtIndex(UInt(indexPath.row)) as Goal
 
-        cell.goalName.text = self.goals[indexPath.row]
+        cell.goalName.text = goal.name
+
         cell.goalCard.layer.masksToBounds = false
         cell.goalCard.layer.shadowColor = UIColor.blackColor().CGColor
         cell.goalCard.layer.shadowOffset = CGSizeMake(0.0, 0.1)
