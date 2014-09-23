@@ -19,9 +19,9 @@ class GoalsController: UITableViewController {
         //
         // Temporarily delete all goals for testing purposes.
         //
-        realm.beginWriteTransaction()
-        realm.deleteObjects(goals)
-        realm.commitWriteTransaction()
+        realm.transactionWithBlock {
+            self.realm.deleteObjects(self.goals)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,9 +56,9 @@ class GoalsController: UITableViewController {
         let goal = Goal()
         goal.name = "Goal #\(arc4random_uniform(150))"
 
-        realm.beginWriteTransaction()
-        realm.addObject(goal)
-        realm.commitWriteTransaction()
+        realm.transactionWithBlock {
+            self.realm.addObject(goal)
+        }
 
         goals = Goal.allObjects()
         tableView.reloadData()
