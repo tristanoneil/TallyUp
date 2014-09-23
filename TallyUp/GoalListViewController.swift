@@ -14,6 +14,7 @@ class GoalListViewController: UIViewController {
     @IBOutlet weak var addGoalPrompt: UIView!
     @IBOutlet weak var newGoalName: UITextField!
     @IBOutlet weak var goalsTableViewTopSpace: NSLayoutConstraint!
+    @IBOutlet weak var addGoalButton: UIButton!
 
     var goals = Goal.allObjects().arraySortedByProperty("createdAt", ascending: false)
     var addingGoal = false
@@ -62,11 +63,7 @@ class GoalListViewController: UIViewController {
     // Toggles the addGoalPrompt view.
     //
     @IBAction func addGoal(sender: AnyObject) {
-        if !addingGoal {
-            showAddGoalPrompt()
-        } else {
-            hideAddGoalPrompt()
-        }
+        addingGoal ? hideAddGoalPrompt() : showAddGoalPrompt()
     }
 
     //
@@ -91,11 +88,13 @@ class GoalListViewController: UIViewController {
         self.goalsTableViewTopSpace.constant += self.addGoalPrompt.frame.height
         addGoalPrompt.hidden = false
         addingGoal = true
+        addGoalButton.setTitle("Cancel", forState: UIControlState.Normal)
     }
 
     private func hideAddGoalPrompt() {
         self.goalsTableViewTopSpace.constant -= self.addGoalPrompt.frame.height
         addGoalPrompt.hidden = true
         addingGoal = false
+        addGoalButton.setTitle("Add Goal", forState: UIControlState.Normal)
     }
 }
