@@ -11,19 +11,25 @@ import UIKit
 class GoalListViewController: UIViewController {
 
     @IBOutlet weak var goalsTableView: UITableView!
+    @IBOutlet weak var addGoalPrompt: UIView!
+    @IBOutlet weak var goalsTableViewTopSpace: NSLayoutConstraint!
 
     var goals = Goal.allObjects()
+    var addingGoal = false
     let realm = RLMRealm.defaultRealm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //
-        // Temporarily delete all goals for testing purposes.
-        //
-        realm.transactionWithBlock {
-            self.realm.deleteObjects(self.goals)
+        let goal = Goal()
+        goal.name = "Goal!!!!"
+
+        realm.transactionWithBlock() {
+            self.realm.addObject(goal)
         }
+
+        goals = Goal.allObjects()
+        goalsTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,14 +62,14 @@ class GoalListViewController: UIViewController {
     }
 
     @IBAction func addGoal(sender: AnyObject) {
-        let goal = Goal()
-        goal.name = "Goal #\(arc4random_uniform(150))"
-
-        realm.transactionWithBlock {
-            self.realm.addObject(goal)
+        if !addingGoal {
+            self.goalsTableViewTopSpace.constant += self.addGoalPrompt.frame.height
+            addGoalPrompt.hidden = false
+            addingGoal = true
+        } else {
+            self.goalsTableViewTopSpace.constant -= self.addGoalPrompt.frame.height
+            addGoalPrompt.hidden = true
+            addingGoal = false
         }
-
-        goals = Goal.allObjects()
-        goalsTableView.reloadData()
     }
 }
