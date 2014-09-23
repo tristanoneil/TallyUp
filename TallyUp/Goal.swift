@@ -10,4 +10,5 @@ import Foundation
 
 class Goal: RLMObject {
     dynamic var name = ""
+    dynamic var createdAt = NSDate.date()
 }

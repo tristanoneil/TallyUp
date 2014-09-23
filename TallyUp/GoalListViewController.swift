@@ -12,29 +12,26 @@ class GoalListViewController: UIViewController {
 
     @IBOutlet weak var goalsTableView: UITableView!
     @IBOutlet weak var addGoalPrompt: UIView!
+    @IBOutlet weak var newGoalName: UITextField!
     @IBOutlet weak var goalsTableViewTopSpace: NSLayoutConstraint!
 
-    var goals = Goal.allObjects()
+    var goals = Goal.allObjects().arraySortedByProperty("createdAt", ascending: false)
     var addingGoal = false
     let realm = RLMRealm.defaultRealm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let goal = Goal()
-        goal.name = "Goal!!!!"
-
+        //
+        // Clear out persisted goals for testing purposes.
+        //
         realm.transactionWithBlock() {
-            self.realm.addObject(goal)
+            self.realm.deleteObjects(self.goals)
         }
-
-        goals = Goal.allObjects()
-        goalsTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     //
@@ -61,15 +58,44 @@ class GoalListViewController: UIViewController {
         return cell
     }
 
+    //
+    // Toggles the addGoalPrompt view.
+    //
     @IBAction func addGoal(sender: AnyObject) {
         if !addingGoal {
-            self.goalsTableViewTopSpace.constant += self.addGoalPrompt.frame.height
-            addGoalPrompt.hidden = false
-            addingGoal = true
+            showAddGoalPrompt()
         } else {
-            self.goalsTableViewTopSpace.constant -= self.addGoalPrompt.frame.height
-            addGoalPrompt.hidden = true
-            addingGoal = false
+            hideAddGoalPrompt()
         }
+    }
+
+    //
+    // Saves a new Goal to Realm then hides the addGoalPrompt view.
+    //
+    @IBAction func saveGoal(sender: AnyObject) {
+        let goal = Goal()
+        goal.name = newGoalName.text
+
+        realm.transactionWithBlock() {
+            self.realm.addObject(goal)
+        }
+
+        goals = Goal.allObjects().arraySortedByProperty("createdAt", ascending: false)
+        goalsTableView.reloadData()
+
+        hideAddGoalPrompt()
+        newGoalName.text = ""
+    }
+
+    private func showAddGoalPrompt() {
+        self.goalsTableViewTopSpace.constant += self.addGoalPrompt.frame.height
+        addGoalPrompt.hidden = false
+        addingGoal = true
+    }
+
+    private func hideAddGoalPrompt() {
+        self.goalsTableViewTopSpace.constant -= self.addGoalPrompt.frame.height
+        addGoalPrompt.hidden = true
+        addingGoal = false
     }
 }
