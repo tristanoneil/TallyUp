@@ -12,10 +12,11 @@ class GoalListViewController: UIViewController {
 
     @IBOutlet weak var goalsTableView: UITableView!
     @IBOutlet weak var addGoalPrompt: UIView!
+    @IBOutlet weak var addGoalButton: UIButton!
+
     @IBOutlet weak var newGoalName: UITextField!
     @IBOutlet weak var newGoalFrequency: UISegmentedControl!
     @IBOutlet weak var newGoalTargetNumber: UITextField!
-    @IBOutlet weak var addGoalButton: UIButton!
 
     var goals: RLMArray!
     var addingGoal = false
@@ -27,7 +28,7 @@ class GoalListViewController: UIViewController {
         //
         // Load all goals ordered by creation date.
         //
-        loadGoals()
+        refreshGoals()
 
         //
         // Set table view insets to there is padding at the top and bottom.
@@ -74,6 +75,16 @@ class GoalListViewController: UIViewController {
     // Saves a new Goal to Realm then hides the addGoalPrompt view.
     //
     @IBAction func saveGoal(sender: AnyObject) {
+        if(newGoalName.text.isEmpty) {
+            displayValidationError("Goal Name can't be blank.")
+            return
+        }
+
+        if(newGoalTargetNumber.text.isEmpty) {
+            displayValidationError("Target Number can't be blank.")
+            return
+        }
+
         let goal = Goal()
         goal.name = newGoalName.text
         goal.frequency = newGoalFrequency.titleForSegmentAtIndex(newGoalFrequency.selectedSegmentIndex)!
@@ -83,11 +94,9 @@ class GoalListViewController: UIViewController {
             self.realm.addObject(goal)
         }
 
-        loadGoals()
-
-        goalsTableView.reloadData()
-
+        refreshGoals()
         hideAddGoalPrompt()
+
         newGoalName.text = ""
         newGoalFrequency.selectedSegmentIndex = 0
         newGoalTargetNumber.text = ""
@@ -107,7 +116,16 @@ class GoalListViewController: UIViewController {
         newGoalName.resignFirstResponder()
     }
 
-    private func loadGoals() {
+    private func refreshGoals() {
         goals = Goal.allObjects().arraySortedByProperty("createdAt", ascending: false)
+        goalsTableView.reloadData()
+    }
+
+    private func displayValidationError(message: NSString) {
+        let alert = UIAlertView()
+        alert.title = "Oh No!"
+        alert.message = message
+        alert.addButtonWithTitle("Ok")
+        alert.show()
     }
 }
