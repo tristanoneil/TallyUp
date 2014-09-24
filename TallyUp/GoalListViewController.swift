@@ -13,7 +13,6 @@ class GoalListViewController: UIViewController {
     @IBOutlet weak var goalsTableView: UITableView!
     @IBOutlet weak var addGoalPrompt: UIView!
     @IBOutlet weak var newGoalName: UITextField!
-    @IBOutlet weak var goalsTableViewTopSpace: NSLayoutConstraint!
     @IBOutlet weak var addGoalButton: UIButton!
 
     var goals = Goal.allObjects().arraySortedByProperty("createdAt", ascending: false)
@@ -22,6 +21,11 @@ class GoalListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        //
+        // Set table view insets to there is padding at the top and bottom.
+        //
+        goalsTableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,7 +82,6 @@ class GoalListViewController: UIViewController {
     }
 
     private func showAddGoalPrompt() {
-        self.goalsTableViewTopSpace.constant += self.addGoalPrompt.frame.height
         addGoalPrompt.hidden = false
         addingGoal = true
         addGoalButton.setTitle("Cancel", forState: UIControlState.Normal)
@@ -86,7 +89,6 @@ class GoalListViewController: UIViewController {
     }
 
     private func hideAddGoalPrompt() {
-        self.goalsTableViewTopSpace.constant -= self.addGoalPrompt.frame.height
         addGoalPrompt.hidden = true
         addingGoal = false
         addGoalButton.setTitle("Add Goal", forState: UIControlState.Normal)

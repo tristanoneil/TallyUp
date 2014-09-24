@@ -46,7 +46,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UkQ-cw-ccH">
-                                                    <rect key="frame" x="16" y="8" width="568" height="135"/>
+                                                    <rect key="frame" x="16" y="7.5" width="568" height="135"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vft-y4-bsd">
                                                             <rect key="frame" x="20" y="20" width="51" height="24"/>
@@ -65,7 +65,7 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="UkQ-cw-ccH" secondAttribute="centerY" id="NrY-X9-LIr"/>
+                                                <constraint firstAttribute="centerY" secondItem="UkQ-cw-ccH" secondAttribute="centerY" id="5kT-KP-QkE"/>
                                                 <constraint firstItem="UkQ-cw-ccH" firstAttribute="leading" secondItem="mSd-Zh-g9b" secondAttribute="leadingMargin" constant="8" id="O12-eL-jJv"/>
                                                 <constraint firstAttribute="centerX" secondItem="UkQ-cw-ccH" secondAttribute="centerX" id="iCG-T9-pKp"/>
                                             </constraints>
@@ -82,44 +82,31 @@
                                     <outlet property="delegate" destination="AyP-cn-rAC" id="QIN-Yr-CG1"/>
                                 </connections>
                             </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYi-Ff-u8P">
-                                <rect key="frame" x="0.0" y="64" width="600" height="150"/>
+                            <view hidden="YES" alpha="0.97999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYi-Ff-u8P">
+                                <rect key="frame" x="0.0" y="64" width="600" height="160"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnb-5z-DbQ">
-                                        <rect key="frame" x="16" y="8" width="568" height="135"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Goal Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cw0-6W-mub">
-                                                <rect key="frame" x="20" y="20" width="568" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLo-Mh-wvZ">
-                                                <rect key="frame" x="20" y="77" width="71" height="30"/>
-                                                <state key="normal" title="Save Goal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="saveGoal:" destination="AyP-cn-rAC" eventType="touchUpInside" id="k33-Wu-4fQ"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="YLo-Mh-wvZ" firstAttribute="leading" secondItem="pnb-5z-DbQ" secondAttribute="leading" constant="20" id="AGv-f5-EAo"/>
-                                            <constraint firstAttribute="height" constant="135" id="EbI-5m-bfZ"/>
-                                            <constraint firstItem="Cw0-6W-mub" firstAttribute="top" secondItem="pnb-5z-DbQ" secondAttribute="top" constant="20" id="Sqe-Rp-AVK"/>
-                                            <constraint firstItem="Cw0-6W-mub" firstAttribute="leading" secondItem="pnb-5z-DbQ" secondAttribute="leading" constant="20" id="hRO-Jd-Wyt"/>
-                                            <constraint firstItem="YLo-Mh-wvZ" firstAttribute="top" secondItem="Cw0-6W-mub" secondAttribute="bottom" constant="40" id="llL-s4-Zqp"/>
-                                            <constraint firstItem="Cw0-6W-mub" firstAttribute="width" secondItem="pnb-5z-DbQ" secondAttribute="width" id="oYk-8s-E1e"/>
-                                        </constraints>
-                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Goal Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cw0-6W-mub">
+                                        <rect key="frame" x="20" y="10" width="76.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLo-Mh-wvZ">
+                                        <rect key="frame" x="20" y="120" width="71" height="30"/>
+                                        <state key="normal" title="Save Goal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveGoal:" destination="AyP-cn-rAC" eventType="touchUpInside" id="k33-Wu-4fQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="53D-JG-z7w"/>
-                                    <constraint firstItem="pnb-5z-DbQ" firstAttribute="leading" secondItem="sYi-Ff-u8P" secondAttribute="leading" constant="16" id="5MW-bF-tEH"/>
-                                    <constraint firstAttribute="centerY" secondItem="pnb-5z-DbQ" secondAttribute="centerY" id="ZDg-qq-i5t"/>
-                                    <constraint firstAttribute="centerX" secondItem="pnb-5z-DbQ" secondAttribute="centerX" id="sIR-v7-m12"/>
+                                    <constraint firstAttribute="bottom" secondItem="YLo-Mh-wvZ" secondAttribute="bottom" constant="10" id="8Sb-PC-JHR"/>
+                                    <constraint firstItem="Cw0-6W-mub" firstAttribute="top" secondItem="sYi-Ff-u8P" secondAttribute="top" constant="10" id="LBS-KH-SQl"/>
+                                    <constraint firstItem="Cw0-6W-mub" firstAttribute="leading" secondItem="sYi-Ff-u8P" secondAttribute="leading" constant="20" id="NBO-zq-2z2"/>
+                                    <constraint firstAttribute="height" constant="160" id="el0-cA-C37"/>
+                                    <constraint firstItem="YLo-Mh-wvZ" firstAttribute="leading" secondItem="sYi-Ff-u8P" secondAttribute="leading" constant="20" id="k99-Bk-32F"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -128,11 +115,10 @@
                             <constraint firstItem="sYi-Ff-u8P" firstAttribute="top" secondItem="UpX-rO-NHP" secondAttribute="bottom" id="3nu-ye-lAM"/>
                             <constraint firstAttribute="centerX" secondItem="XJp-lf-iVS" secondAttribute="centerX" id="KIJ-ho-foS"/>
                             <constraint firstAttribute="centerX" secondItem="sYi-Ff-u8P" secondAttribute="centerX" id="L8B-GK-Bht"/>
-                            <constraint firstItem="XJp-lf-iVS" firstAttribute="top" secondItem="UpX-rO-NHP" secondAttribute="bottom" constant="-64" id="M5a-kj-9c8"/>
                             <constraint firstItem="XJp-lf-iVS" firstAttribute="width" secondItem="9PM-cF-3gU" secondAttribute="width" id="PvY-PU-REg"/>
                             <constraint firstItem="XJp-lf-iVS" firstAttribute="height" secondItem="9PM-cF-3gU" secondAttribute="height" id="VWz-gz-P7n"/>
+                            <constraint firstAttribute="centerY" secondItem="XJp-lf-iVS" secondAttribute="centerY" id="ZRb-5F-QyT"/>
                             <constraint firstItem="sYi-Ff-u8P" firstAttribute="width" secondItem="9PM-cF-3gU" secondAttribute="width" id="bTs-Eb-GOP"/>
-                            <constraint firstAttribute="width" secondItem="XJp-lf-iVS" secondAttribute="width" id="hBe-Ca-Cb1"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -156,7 +142,6 @@
                         <outlet property="addGoalButton" destination="HFz-qg-m3b" id="SfV-Jk-ib6"/>
                         <outlet property="addGoalPrompt" destination="sYi-Ff-u8P" id="5iM-Od-Hfj"/>
                         <outlet property="goalsTableView" destination="XJp-lf-iVS" id="sjZ-uc-Uih"/>
-                        <outlet property="goalsTableViewTopSpace" destination="M5a-kj-9c8" id="mW9-4L-fBo"/>
                         <outlet property="newGoalName" destination="Cw0-6W-mub" id="MKs-MQ-LiF"/>
                     </connections>
                 </viewController>
