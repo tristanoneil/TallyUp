@@ -89,6 +89,7 @@ class GoalListViewController: UIViewController {
         addGoalPrompt.hidden = false
         addingGoal = true
         addGoalButton.setTitle("Cancel", forState: UIControlState.Normal)
+        newGoalName.becomeFirstResponder()
     }
 
     private func hideAddGoalPrompt() {
@@ -96,5 +97,6 @@ class GoalListViewController: UIViewController {
         addGoalPrompt.hidden = true
         addingGoal = false
         addGoalButton.setTitle("Add Goal", forState: UIControlState.Normal)
+        newGoalName.resignFirstResponder()
     }
 }
