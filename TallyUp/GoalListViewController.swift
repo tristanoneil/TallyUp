@@ -13,14 +13,21 @@ class GoalListViewController: UIViewController {
     @IBOutlet weak var goalsTableView: UITableView!
     @IBOutlet weak var addGoalPrompt: UIView!
     @IBOutlet weak var newGoalName: UITextField!
+    @IBOutlet weak var newGoalFrequency: UISegmentedControl!
+    @IBOutlet weak var newGoalTargetNumber: UITextField!
     @IBOutlet weak var addGoalButton: UIButton!
 
-    var goals = Goal.allObjects().arraySortedByProperty("createdAt", ascending: false)
+    var goals: RLMArray!
     var addingGoal = false
-    let realm = RLMRealm.defaultRealm()
+    var realm = RLMRealm.defaultRealm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        //
+        // Load all goals ordered by creation date.
+        //
+        loadGoals()
 
         //
         // Set table view insets to there is padding at the top and bottom.
@@ -46,7 +53,7 @@ class GoalListViewController: UIViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("GoalCell", forIndexPath: indexPath) as GoalCell
         let goal = goals.objectAtIndex(UInt(indexPath.row)) as Goal
 
-        cell.goalName.text = goal.name
+        cell.goalName.text = "\(goal.name) \(goal.frequency)"
 
         cell.goalCard.layer.masksToBounds = false
         cell.goalCard.layer.shadowColor = UIColor.blackColor().CGColor
@@ -69,16 +76,21 @@ class GoalListViewController: UIViewController {
     @IBAction func saveGoal(sender: AnyObject) {
         let goal = Goal()
         goal.name = newGoalName.text
+        goal.frequency = newGoalFrequency.titleForSegmentAtIndex(newGoalFrequency.selectedSegmentIndex)!
+        goal.targetNumber = newGoalTargetNumber.text.toInt()!
 
         realm.transactionWithBlock() {
             self.realm.addObject(goal)
         }
 
-        goals = Goal.allObjects().arraySortedByProperty("createdAt", ascending: false)
+        loadGoals()
+
         goalsTableView.reloadData()
 
         hideAddGoalPrompt()
         newGoalName.text = ""
+        newGoalFrequency.selectedSegmentIndex = 0
+        newGoalTargetNumber.text = ""
     }
 
     private func showAddGoalPrompt() {
@@ -93,5 +105,9 @@ class GoalListViewController: UIViewController {
         addingGoal = false
         addGoalButton.setTitle("Add Goal", forState: UIControlState.Normal)
         newGoalName.resignFirstResponder()
+    }
+
+    private func loadGoals() {
+        goals = Goal.allObjects().arraySortedByProperty("createdAt", ascending: false)
     }
 }
