@@ -22,13 +22,6 @@ class GoalListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //
-        // Clear out persisted goals for testing purposes.
-        //
-        realm.transactionWithBlock() {
-            self.realm.deleteObjects(self.goals)
-        }
     }
 
     override func didReceiveMemoryWarning() {
