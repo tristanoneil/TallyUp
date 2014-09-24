@@ -82,8 +82,8 @@
                                     <outlet property="delegate" destination="AyP-cn-rAC" id="QIN-Yr-CG1"/>
                                 </connections>
                             </tableView>
-                            <view hidden="YES" alpha="0.97999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYi-Ff-u8P">
-                                <rect key="frame" x="0.0" y="64" width="600" height="160"/>
+                            <view alpha="0.97999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYi-Ff-u8P">
+                                <rect key="frame" x="0.0" y="-106" width="600" height="160"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Goal Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cw0-6W-mub">
                                         <rect key="frame" x="20" y="10" width="76.5" height="17"/>
@@ -131,7 +131,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="sYi-Ff-u8P" firstAttribute="top" secondItem="UpX-rO-NHP" secondAttribute="bottom" id="3nu-ye-lAM"/>
+                            <constraint firstItem="sYi-Ff-u8P" firstAttribute="top" secondItem="UpX-rO-NHP" secondAttribute="bottom" constant="-170" id="3nu-ye-lAM"/>
                             <constraint firstAttribute="centerX" secondItem="XJp-lf-iVS" secondAttribute="centerX" id="KIJ-ho-foS"/>
                             <constraint firstAttribute="centerX" secondItem="sYi-Ff-u8P" secondAttribute="centerX" id="L8B-GK-Bht"/>
                             <constraint firstItem="XJp-lf-iVS" firstAttribute="width" secondItem="9PM-cF-3gU" secondAttribute="width" id="PvY-PU-REg"/>
@@ -160,6 +160,7 @@
                     <connections>
                         <outlet property="addGoalButton" destination="HFz-qg-m3b" id="SfV-Jk-ib6"/>
                         <outlet property="addGoalPrompt" destination="sYi-Ff-u8P" id="5iM-Od-Hfj"/>
+                        <outlet property="addGoalPromptTopSpace" destination="3nu-ye-lAM" id="3PL-oN-q4O"/>
                         <outlet property="goalsTableView" destination="XJp-lf-iVS" id="sjZ-uc-Uih"/>
                         <outlet property="newGoalFrequency" destination="69P-22-Q0C" id="W1N-OS-fJK"/>
                         <outlet property="newGoalName" destination="Cw0-6W-mub" id="MKs-MQ-LiF"/>

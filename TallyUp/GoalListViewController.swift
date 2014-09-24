@@ -13,6 +13,7 @@ class GoalListViewController: UIViewController {
     @IBOutlet weak var goalsTableView: UITableView!
     @IBOutlet weak var addGoalPrompt: UIView!
     @IBOutlet weak var addGoalButton: UIButton!
+    @IBOutlet weak var addGoalPromptTopSpace: NSLayoutConstraint!
 
     @IBOutlet weak var newGoalName: UITextField!
     @IBOutlet weak var newGoalFrequency: UISegmentedControl!
@@ -103,14 +104,24 @@ class GoalListViewController: UIViewController {
     }
 
     private func showAddGoalPrompt() {
-        addGoalPrompt.hidden = false
+        addGoalPromptTopSpace.constant += 170
+
+        UIView.animateWithDuration(0.2, animations: {
+            self.view.layoutIfNeeded()
+        })
+
         addingGoal = true
         addGoalButton.setTitle("Cancel", forState: UIControlState.Normal)
         newGoalName.becomeFirstResponder()
     }
 
     private func hideAddGoalPrompt() {
-        addGoalPrompt.hidden = true
+        addGoalPromptTopSpace.constant -= 170
+
+        UIView.animateWithDuration(0.2, animations: {
+            self.view.layoutIfNeeded()
+        })
+
         addingGoal = false
         addGoalButton.setTitle("Add Goal", forState: UIControlState.Normal)
         newGoalName.resignFirstResponder()
