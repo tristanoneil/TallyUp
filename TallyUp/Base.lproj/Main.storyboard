@@ -156,7 +156,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addGoal:" destination="AyP-cn-rAC" eventType="touchUpInside" id="UF4-pv-Ssa"/>
+                                    <action selector="toggleGoalPane:" destination="AyP-cn-rAC" eventType="touchUpInside" id="wjN-ag-UIx"/>
                                 </connections>
                             </button>
                         </barButtonItem>

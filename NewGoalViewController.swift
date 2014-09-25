@@ -16,10 +16,6 @@ class NewGoalViewController: UIViewController {
 
     var realm = RLMRealm.defaultRealm()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     //
     // Saves a new Goal to Realm then hides the addGoalPrompt view.
     //
@@ -44,7 +40,7 @@ class NewGoalViewController: UIViewController {
         }
 
         let goalListViewController = parentViewController as GoalListViewController
-        goalListViewController.hideAddGoalPrompt()
+        goalListViewController.toggleGoalPane(self.view)
         goalListViewController.refreshGoals()
 
         goalName.text = ""

@@ -13,6 +13,9 @@ class Goal: RLMObject {
     dynamic var tallies = RLMArray(objectClassName: Tally.className())
     dynamic var createdAt = NSDate.date()
 
+    //
+    // Returns the current frequency in UI friendly present tense form.
+    //
     func frequencyToPresentTense() -> String {
         switch frequency {
             case "Daily":

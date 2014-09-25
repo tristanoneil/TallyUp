@@ -15,10 +15,6 @@ class GoalListViewController: UIViewController {
     @IBOutlet weak var addGoalPane: UIView!
     @IBOutlet weak var addGoalPaneSpacing: NSLayoutConstraint!
 
-    @IBOutlet weak var newGoalName: UITextField!
-    @IBOutlet weak var newGoalFrequency: UISegmentedControl!
-    @IBOutlet weak var newGoalTargetNumber: UITextField!
-
     var goals: RLMArray!
     var addingGoal = false
 
@@ -34,10 +30,6 @@ class GoalListViewController: UIViewController {
         // Set table view insets to there is padding at the top and bottom.
         //
         goalsTableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
     //
@@ -61,24 +53,22 @@ class GoalListViewController: UIViewController {
     }
 
     //
-    // Toggles the addGoalPrompt view.
+    // Toggles the add goal pane and changes the navigation button text.
     //
-    @IBAction func addGoal(sender: AnyObject) {
-        addingGoal ? hideAddGoalPrompt() : showAddGoalPrompt()
-    }
-
-    //
-    // Slides up the goal prompt and changes the navigation button text to Add Goal.
-    //
-    func hideAddGoalPrompt() {
-        addGoalPaneSpacing.constant -= addGoalPane.frame.height
+    @IBAction func toggleGoalPane(sender: AnyObject) {
+        if addingGoal {
+            addGoalPaneSpacing.constant -= addGoalPane.frame.height
+            addGoalButton.setTitle("Add Goal", forState: UIControlState.Normal)
+        } else {
+            addGoalPaneSpacing.constant += addGoalPane.frame.height
+            addGoalButton.setTitle("Cancel", forState: UIControlState.Normal)
+        }
 
         UIView.animateWithDuration(0.2, animations: {
             self.view.layoutIfNeeded()
         })
 
-        addingGoal = false
-        addGoalButton.setTitle("Add Goal", forState: UIControlState.Normal)
+        addingGoal = !addingGoal
     }
 
     //
@@ -87,16 +77,5 @@ class GoalListViewController: UIViewController {
     func refreshGoals() {
         goals = Goal.allObjects().arraySortedByProperty("createdAt", ascending: false)
         goalsTableView.reloadData()
-    }
-
-    private func showAddGoalPrompt() {
-        addGoalPaneSpacing.constant += addGoalPane.frame.height
-
-        UIView.animateWithDuration(0.2, animations: {
-            self.view.layoutIfNeeded()
-        })
-
-        addingGoal = true
-        addGoalButton.setTitle("Cancel", forState: UIControlState.Normal)
     }
 }
