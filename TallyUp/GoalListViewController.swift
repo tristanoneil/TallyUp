@@ -52,17 +52,10 @@ class GoalListViewController: UIViewController {
     //
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GoalCell", forIndexPath: indexPath) as GoalCell
-        let goal = goals.objectAtIndex(UInt(indexPath.row)) as Goal
 
-        cell.goalName.text = goal.name
-        cell.goalTally.text = String(goal.tallies.count)
-        cell.goalTargetNumber.text = "of \(goal.targetNumber)"
-        cell.goalFrequency.text = goal.frequencyToPresentTense()
-
-        cell.goalCard.layer.masksToBounds = false
-        cell.goalCard.layer.shadowColor = UIColor.blackColor().CGColor
-        cell.goalCard.layer.shadowOffset = CGSizeMake(0.0, 0.1)
-        cell.goalCard.layer.shadowOpacity = 0.1
+        cell.goal = goals.objectAtIndex(UInt(indexPath.row)) as Goal
+        cell.goalListViewController = self
+        cell.setupCell()
 
         return cell
     }
