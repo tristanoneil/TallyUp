@@ -11,4 +11,7 @@ import UIKit
 class GoalCell: UITableViewCell {
     @IBOutlet weak var goalName: UILabel!
     @IBOutlet weak var goalCard: UIView!
+    @IBOutlet weak var goalTally: UILabel!
+    @IBOutlet weak var goalTargetNumber: UILabel!
+    @IBOutlet weak var goalFrequency: UILabel!
 }

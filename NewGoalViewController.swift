@@ -39,6 +39,12 @@ class NewGoalViewController: UIViewController {
         goal.frequency = goalFrequency.titleForSegmentAtIndex(goalFrequency.selectedSegmentIndex)!
         goal.targetNumber = goalTargetNumber.text.toInt()!
 
+        //
+        // Temporarily create some fake tallies until I implement the TallyUp button.
+        //
+        let tally = Tally()
+        goal.tallies.addObject(tally)
+
         realm.transactionWithBlock() {
             self.realm.addObject(goal)
         }

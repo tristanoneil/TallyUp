@@ -6,11 +6,21 @@
 //  Copyright (c) 2014 Tristan O'Neil. All rights reserved.
 //
 
-import Foundation
-
 class Goal: RLMObject {
     dynamic var name = ""
     dynamic var frequency = ""
     dynamic var targetNumber = 0
+    dynamic var tallies = RLMArray(objectClassName: Tally.className())
     dynamic var createdAt = NSDate.date()
+
+    func frequencyToPresentTense() -> String {
+        switch frequency {
+            case "Daily":
+                return "Today"
+            case "Weekly":
+                return "This Week"
+            default:
+                return "This Month"
+        }
+    }
 }

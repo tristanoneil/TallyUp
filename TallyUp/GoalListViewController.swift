@@ -54,7 +54,10 @@ class GoalListViewController: UIViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("GoalCell", forIndexPath: indexPath) as GoalCell
         let goal = goals.objectAtIndex(UInt(indexPath.row)) as Goal
 
-        cell.goalName.text = "\(goal.name) \(goal.frequency)"
+        cell.goalName.text = goal.name
+        cell.goalTally.text = String(goal.tallies.count)
+        cell.goalTargetNumber.text = "of \(goal.targetNumber)"
+        cell.goalFrequency.text = goal.frequencyToPresentTense()
 
         cell.goalCard.layer.masksToBounds = false
         cell.goalCard.layer.shadowColor = UIColor.blackColor().CGColor
