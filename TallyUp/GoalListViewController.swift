@@ -11,9 +11,9 @@ import UIKit
 class GoalListViewController: UIViewController {
 
     @IBOutlet weak var goalsTableView: UITableView!
-    @IBOutlet weak var addGoalPrompt: UIView!
     @IBOutlet weak var addGoalButton: UIButton!
-    @IBOutlet weak var addGoalPromptTopSpace: NSLayoutConstraint!
+    @IBOutlet weak var addGoalPane: UIView!
+    @IBOutlet weak var addGoalPaneSpacing: NSLayoutConstraint!
 
     @IBOutlet weak var newGoalName: UITextField!
     @IBOutlet weak var newGoalFrequency: UISegmentedControl!
@@ -21,7 +21,6 @@ class GoalListViewController: UIViewController {
 
     var goals: RLMArray!
     var addingGoal = false
-    var realm = RLMRealm.defaultRealm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,50 +72,10 @@ class GoalListViewController: UIViewController {
     }
 
     //
-    // Saves a new Goal to Realm then hides the addGoalPrompt view.
+    // Slides up the goal prompt and changes the navigation button text to Add Goal.
     //
-    @IBAction func saveGoal(sender: AnyObject) {
-        if(newGoalName.text.isEmpty) {
-            displayValidationError("Goal Name can't be blank.")
-            return
-        }
-
-        if(newGoalTargetNumber.text.isEmpty) {
-            displayValidationError("Target Number can't be blank.")
-            return
-        }
-
-        let goal = Goal()
-        goal.name = newGoalName.text
-        goal.frequency = newGoalFrequency.titleForSegmentAtIndex(newGoalFrequency.selectedSegmentIndex)!
-        goal.targetNumber = newGoalTargetNumber.text.toInt()!
-
-        realm.transactionWithBlock() {
-            self.realm.addObject(goal)
-        }
-
-        refreshGoals()
-        hideAddGoalPrompt()
-
-        newGoalName.text = ""
-        newGoalFrequency.selectedSegmentIndex = 0
-        newGoalTargetNumber.text = ""
-    }
-
-    private func showAddGoalPrompt() {
-        addGoalPromptTopSpace.constant += 170
-
-        UIView.animateWithDuration(0.2, animations: {
-            self.view.layoutIfNeeded()
-        })
-
-        addingGoal = true
-        addGoalButton.setTitle("Cancel", forState: UIControlState.Normal)
-        newGoalName.becomeFirstResponder()
-    }
-
-    private func hideAddGoalPrompt() {
-        addGoalPromptTopSpace.constant -= 170
+    func hideAddGoalPrompt() {
+        addGoalPaneSpacing.constant -= addGoalPane.frame.height
 
         UIView.animateWithDuration(0.2, animations: {
             self.view.layoutIfNeeded()
@@ -124,19 +83,24 @@ class GoalListViewController: UIViewController {
 
         addingGoal = false
         addGoalButton.setTitle("Add Goal", forState: UIControlState.Normal)
-        newGoalName.resignFirstResponder()
     }
 
-    private func refreshGoals() {
+    //
+    // Fetches the goals from realm and reloads the table view data.
+    //
+    func refreshGoals() {
         goals = Goal.allObjects().arraySortedByProperty("createdAt", ascending: false)
         goalsTableView.reloadData()
     }
 
-    private func displayValidationError(message: NSString) {
-        let alert = UIAlertView()
-        alert.title = "Oh No!"
-        alert.message = message
-        alert.addButtonWithTitle("Ok")
-        alert.show()
+    private func showAddGoalPrompt() {
+        addGoalPaneSpacing.constant += addGoalPane.frame.height
+
+        UIView.animateWithDuration(0.2, animations: {
+            self.view.layoutIfNeeded()
+        })
+
+        addingGoal = true
+        addGoalButton.setTitle("Cancel", forState: UIControlState.Normal)
     }
 }

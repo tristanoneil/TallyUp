@@ -31,7 +31,7 @@
                         <viewControllerLayoutGuide type="bottom" id="PiU-9k-yZQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9PM-cF-3gU">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XJp-lf-iVS">
@@ -82,62 +82,25 @@
                                     <outlet property="delegate" destination="AyP-cn-rAC" id="QIN-Yr-CG1"/>
                                 </connections>
                             </tableView>
-                            <view alpha="0.97999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYi-Ff-u8P">
-                                <rect key="frame" x="0.0" y="-106" width="600" height="160"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Goal Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cw0-6W-mub">
-                                        <rect key="frame" x="20" y="10" width="76.5" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLo-Mh-wvZ">
-                                        <rect key="frame" x="20" y="120" width="71" height="30"/>
-                                        <color key="tintColor" red="0.13725490200000001" green="0.29411764709999999" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Save Goal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="saveGoal:" destination="AyP-cn-rAC" eventType="touchUpInside" id="k33-Wu-4fQ"/>
-                                        </connections>
-                                    </button>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="69P-22-Q0C">
-                                        <rect key="frame" x="20" y="47" width="191" height="29"/>
-                                        <segments>
-                                            <segment title="Daily"/>
-                                            <segment title="Weekly"/>
-                                            <segment title="Monthly"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.13725490200000001" green="0.29411764709999999" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </segmentedControl>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Target Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Baj-tl-mGT">
-                                        <rect key="frame" x="20" y="95" width="99" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYs-JD-ljU">
+                                <rect key="frame" x="0.0" y="-116" width="600" height="180"/>
                                 <constraints>
-                                    <constraint firstItem="69P-22-Q0C" firstAttribute="leading" secondItem="sYi-Ff-u8P" secondAttribute="leading" constant="20" id="2Zk-De-G8S"/>
-                                    <constraint firstAttribute="bottom" secondItem="YLo-Mh-wvZ" secondAttribute="bottom" constant="10" id="8Sb-PC-JHR"/>
-                                    <constraint firstItem="Baj-tl-mGT" firstAttribute="top" secondItem="69P-22-Q0C" secondAttribute="bottom" constant="20" id="BQv-UL-pIe"/>
-                                    <constraint firstItem="69P-22-Q0C" firstAttribute="top" secondItem="Cw0-6W-mub" secondAttribute="bottom" constant="20" id="Iuu-8t-L6T"/>
-                                    <constraint firstItem="Cw0-6W-mub" firstAttribute="top" secondItem="sYi-Ff-u8P" secondAttribute="top" constant="10" id="LBS-KH-SQl"/>
-                                    <constraint firstItem="Cw0-6W-mub" firstAttribute="leading" secondItem="sYi-Ff-u8P" secondAttribute="leading" constant="20" id="NBO-zq-2z2"/>
-                                    <constraint firstItem="Baj-tl-mGT" firstAttribute="leading" secondItem="sYi-Ff-u8P" secondAttribute="leading" constant="20" id="UiC-Lh-BYq"/>
-                                    <constraint firstAttribute="height" constant="160" id="el0-cA-C37"/>
-                                    <constraint firstItem="YLo-Mh-wvZ" firstAttribute="leading" secondItem="sYi-Ff-u8P" secondAttribute="leading" constant="20" id="k99-Bk-32F"/>
+                                    <constraint firstAttribute="height" constant="180" id="egu-HB-tJt"/>
                                 </constraints>
-                            </view>
+                                <connections>
+                                    <segue destination="Rj2-MF-DfC" kind="embed" id="ora-g5-L4C"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="sYi-Ff-u8P" firstAttribute="top" secondItem="UpX-rO-NHP" secondAttribute="bottom" constant="-170" id="3nu-ye-lAM"/>
+                            <constraint firstAttribute="width" secondItem="SYs-JD-ljU" secondAttribute="width" id="IJg-pG-fRg"/>
+                            <constraint firstItem="SYs-JD-ljU" firstAttribute="bottom" secondItem="UpX-rO-NHP" secondAttribute="bottom" id="Jdh-Sv-ofk"/>
                             <constraint firstAttribute="centerX" secondItem="XJp-lf-iVS" secondAttribute="centerX" id="KIJ-ho-foS"/>
-                            <constraint firstAttribute="centerX" secondItem="sYi-Ff-u8P" secondAttribute="centerX" id="L8B-GK-Bht"/>
                             <constraint firstItem="XJp-lf-iVS" firstAttribute="width" secondItem="9PM-cF-3gU" secondAttribute="width" id="PvY-PU-REg"/>
                             <constraint firstItem="XJp-lf-iVS" firstAttribute="height" secondItem="9PM-cF-3gU" secondAttribute="height" id="VWz-gz-P7n"/>
                             <constraint firstAttribute="centerY" secondItem="XJp-lf-iVS" secondAttribute="centerY" id="ZRb-5F-QyT"/>
-                            <constraint firstItem="sYi-Ff-u8P" firstAttribute="width" secondItem="9PM-cF-3gU" secondAttribute="width" id="bTs-Eb-GOP"/>
+                            <constraint firstAttribute="centerX" secondItem="SYs-JD-ljU" secondAttribute="centerX" id="yJH-sN-Tqm"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -159,17 +122,91 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addGoalButton" destination="HFz-qg-m3b" id="SfV-Jk-ib6"/>
-                        <outlet property="addGoalPrompt" destination="sYi-Ff-u8P" id="5iM-Od-Hfj"/>
-                        <outlet property="addGoalPromptTopSpace" destination="3nu-ye-lAM" id="3PL-oN-q4O"/>
+                        <outlet property="addGoalPane" destination="SYs-JD-ljU" id="ybZ-1E-sFI"/>
+                        <outlet property="addGoalPaneSpacing" destination="Jdh-Sv-ofk" id="5ag-Cx-9Zt"/>
                         <outlet property="goalsTableView" destination="XJp-lf-iVS" id="sjZ-uc-Uih"/>
-                        <outlet property="newGoalFrequency" destination="69P-22-Q0C" id="W1N-OS-fJK"/>
-                        <outlet property="newGoalName" destination="Cw0-6W-mub" id="MKs-MQ-LiF"/>
-                        <outlet property="newGoalTargetNumber" destination="Baj-tl-mGT" id="5mc-od-Z2F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOB-CW-0fS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1983" y="814"/>
+        </scene>
+        <!--New Goal View Controller-->
+        <scene sceneID="hvn-NJ-Qmz">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Rj2-MF-DfC" customClass="NewGoalViewController" customModule="TallyUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="90k-DU-K56"/>
+                        <viewControllerLayoutGuide type="bottom" id="IvO-9J-7Eo"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.97999999999999998" contentMode="center" id="9N9-6z-LGV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="190"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2c-wc-mol">
+                                <rect key="frame" x="0.0" y="140" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.29411764709999999" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="M6L-z2-Uof"/>
+                                </constraints>
+                                <color key="tintColor" red="0.13725490200000001" green="0.29411764709999999" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Save Goal">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveGoal:" destination="AyP-cn-rAC" eventType="touchUpInside" id="kWF-YB-GmQ"/>
+                                    <action selector="saveGoal:" destination="Rj2-MF-DfC" eventType="touchUpInside" id="x9b-aZ-H4p"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Goal Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ETo-jO-k36">
+                                <rect key="frame" x="20" y="15" width="560" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aor-jN-rMa">
+                                <rect key="frame" x="20" y="47" width="560" height="29"/>
+                                <segments>
+                                    <segment title="Daily"/>
+                                    <segment title="Weekly"/>
+                                    <segment title="Monthly"/>
+                                </segments>
+                                <color key="tintColor" red="0.13725490200000001" green="0.29411764709999999" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Target Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dL4-49-pMt">
+                                <rect key="frame" x="20" y="90" width="560" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="N2c-wc-mol" secondAttribute="centerX" id="4lp-T2-E9t"/>
+                            <constraint firstAttribute="centerX" secondItem="ETo-jO-k36" secondAttribute="centerX" id="BGh-PK-2WF"/>
+                            <constraint firstItem="aor-jN-rMa" firstAttribute="top" secondItem="ETo-jO-k36" secondAttribute="bottom" constant="15" id="EXU-3G-IuG"/>
+                            <constraint firstAttribute="width" secondItem="ETo-jO-k36" secondAttribute="width" constant="40" id="PWg-qR-gQW"/>
+                            <constraint firstItem="dL4-49-pMt" firstAttribute="top" secondItem="aor-jN-rMa" secondAttribute="bottom" constant="15" id="RuH-Mf-3Yh"/>
+                            <constraint firstItem="IvO-9J-7Eo" firstAttribute="top" secondItem="N2c-wc-mol" secondAttribute="bottom" id="RvS-GX-4Yj"/>
+                            <constraint firstAttribute="width" secondItem="N2c-wc-mol" secondAttribute="width" id="Ztz-6D-gaK"/>
+                            <constraint firstItem="ETo-jO-k36" firstAttribute="top" secondItem="90k-DU-K56" secondAttribute="top" constant="15" id="ggt-74-9eH"/>
+                            <constraint firstAttribute="centerX" secondItem="aor-jN-rMa" secondAttribute="centerX" id="sS7-u0-83c"/>
+                            <constraint firstAttribute="centerX" secondItem="dL4-49-pMt" secondAttribute="centerX" id="xdc-OZ-c4F"/>
+                            <constraint firstAttribute="width" secondItem="dL4-49-pMt" secondAttribute="width" constant="40" id="xhn-n5-qiI"/>
+                            <constraint firstAttribute="width" secondItem="aor-jN-rMa" secondAttribute="width" constant="40" id="yHv-56-vxw"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="190"/>
+                    <connections>
+                        <outlet property="goalFrequency" destination="aor-jN-rMa" id="azM-nn-br2"/>
+                        <outlet property="goalName" destination="ETo-jO-k36" id="xQQ-aF-nGU"/>
+                        <outlet property="goalTargetNumber" destination="dL4-49-pMt" id="U4k-Bw-QML"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Az-nJ-XlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2698" y="614"/>
         </scene>
     </scenes>
 </document>

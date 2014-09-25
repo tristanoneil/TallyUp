@@ -10,6 +10,7 @@
 		6A0FD62E19D19D4600D12306 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0FD62D19D19D4600D12306 /* GoalCell.swift */; };
 		6A2DF0AC19D1CEAD004DC681 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2DF0AB19D1CEAD004DC681 /* Goal.swift */; };
 		6A2DF0B019D1FBB0004DC681 /* GoalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2DF0AF19D1FBB0004DC681 /* GoalListViewController.swift */; };
+		6A4C23E319D461C200D85744 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C23E219D461C200D85744 /* NewGoalViewController.swift */; };
 		6A5185849D0241B4B29F9610 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9CB928256D41DE9AE1646F /* libPods.a */; };
 		6A70520619CC6E7E00C3B778 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A70520519CC6E7E00C3B778 /* AppDelegate.swift */; };
 		6A70520B19CC6E7E00C3B778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A70520919CC6E7E00C3B778 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		6A2DF0AA19D1CE1F004DC681 /* TallyUpBridingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TallyUpBridingHeader.h; sourceTree = "<group>"; };
 		6A2DF0AB19D1CEAD004DC681 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		6A2DF0AF19D1FBB0004DC681 /* GoalListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalListViewController.swift; sourceTree = "<group>"; };
+		6A4C23E219D461C200D85744 /* NewGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewGoalViewController.swift; path = ../NewGoalViewController.swift; sourceTree = "<group>"; };
 		6A70520019CC6E7E00C3B778 /* TallyUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TallyUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A70520419CC6E7E00C3B778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A70520519CC6E7E00C3B778 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		6A70520219CC6E7E00C3B778 /* TallyUp */ = {
 			isa = PBXGroup;
 			children = (
+				6A4C23E219D461C200D85744 /* NewGoalViewController.swift */,
 				6A70520519CC6E7E00C3B778 /* AppDelegate.swift */,
 				6A70520919CC6E7E00C3B778 /* Main.storyboard */,
 				6A70520C19CC6E7E00C3B778 /* Images.xcassets */,
@@ -274,6 +277,7 @@
 				6A2DF0B019D1FBB0004DC681 /* GoalListViewController.swift in Sources */,
 				6A70520619CC6E7E00C3B778 /* AppDelegate.swift in Sources */,
 				6A0FD62E19D19D4600D12306 /* GoalCell.swift in Sources */,
+				6A4C23E319D461C200D85744 /* NewGoalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
