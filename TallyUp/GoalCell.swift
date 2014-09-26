@@ -15,6 +15,8 @@ class GoalCell: UITableViewCell {
     @IBOutlet weak var goalTally: UILabel!
     @IBOutlet weak var goalTargetNumber: UILabel!
     @IBOutlet weak var goalFrequency: UILabel!
+    @IBOutlet weak var tallyDownButton: UIButton!
+    @IBOutlet weak var tallyUpButton: UIButton!
 
     var goal: Goal!
     var goalListViewController: GoalListViewController!
@@ -26,6 +28,17 @@ class GoalCell: UITableViewCell {
     @IBAction func tallyUp(sender: AnyObject) {
         realm.transactionWithBlock() {
             self.goal.tallies.addObject(Tally())
+        }
+
+        goalListViewController.refreshGoals()
+    }
+
+    //
+    // Removes the last Tally and refreshes the parent GoalListViewController.
+    //
+    @IBAction func tallyDown(sender: AnyObject) {
+        realm.transactionWithBlock() {
+            self.goal.tallies.removeLastObject()
         }
 
         goalListViewController.refreshGoals()
@@ -44,5 +57,11 @@ class GoalCell: UITableViewCell {
         goalCard.layer.shadowColor = UIColor.blackColor().CGColor
         goalCard.layer.shadowOffset = CGSizeMake(0.0, 0.1)
         goalCard.layer.shadowOpacity = 0.1
+
+        tallyUpButton.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.03).CGColor
+        tallyUpButton.layer.borderWidth = 1
+
+        tallyDownButton.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.03).CGColor
+        tallyDownButton.layer.borderWidth = 1
     }
 }
