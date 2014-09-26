@@ -17,10 +17,13 @@ class GoalCell: UITableViewCell {
     @IBOutlet weak var goalFrequency: UILabel!
     @IBOutlet weak var tallyDownButton: UIButton!
     @IBOutlet weak var tallyUpButton: UIButton!
+    @IBOutlet weak var tallyUpButtonHeight: NSLayoutConstraint!
+    @IBOutlet weak var tallyDownButtonHeight: NSLayoutConstraint!
 
     var goal: Goal!
     var goalListViewController: GoalListViewController!
     var realm = RLMRealm.defaultRealm()
+    var buttonsExpanded = false
 
     //
     // Adds a new Tally to the goal and refreshes the parent GoalListViewController.
@@ -45,6 +48,25 @@ class GoalCell: UITableViewCell {
     }
 
     //
+    // Toggles TallyUp and TallyDown buttons.
+    //
+    func expandTallyButtons() {
+        if buttonsExpanded {
+            tallyUpButtonHeight.constant -= 30
+            tallyDownButtonHeight.constant -= 30
+        } else {
+            tallyUpButtonHeight.constant += 30
+            tallyDownButtonHeight.constant += 30
+        }
+
+        UIView.animateWithDuration(0.1, animations: {
+            self.goalCard.layoutIfNeeded()
+        })
+
+        buttonsExpanded = !buttonsExpanded
+    }
+
+    //
     // Sets up the UI elements of the cell and draws the cells shadow.
     //
     func setupCell() {
@@ -57,6 +79,9 @@ class GoalCell: UITableViewCell {
         goalCard.layer.shadowColor = UIColor.blackColor().CGColor
         goalCard.layer.shadowOffset = CGSizeMake(0.0, 0.1)
         goalCard.layer.shadowOpacity = 0.1
+
+        var touch = UITapGestureRecognizer(target: self, action: "expandTallyButtons")
+        goalCard.addGestureRecognizer(touch)
 
         tallyUpButton.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.03).CGColor
         tallyUpButton.layer.borderWidth = 1

@@ -14,6 +14,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.13333333333333333" green="0.29019607843137257" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="AyP-cn-rAC" kind="relationship" relationship="rootViewController" id="fOf-7Z-19V"/>
@@ -74,10 +77,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJT-dp-EuH">
-                                                            <rect key="frame" x="0.0" y="105" width="284" height="30"/>
                                                             <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="UP1-5R-a6Z"/>
+                                                                <constraint firstAttribute="height" id="UP1-5R-a6Z"/>
                                                             </constraints>
                                                             <color key="tintColor" red="0.22745098039215686" green="0.69019607843137254" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                             <state key="normal" image="Up Arrow">
@@ -89,10 +91,9 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFb-XK-aH4">
-                                                            <rect key="frame" x="284" y="105" width="284" height="30"/>
                                                             <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="SFS-du-mKt"/>
+                                                                <constraint firstAttribute="height" id="SFS-du-mKt"/>
                                                             </constraints>
                                                             <color key="tintColor" red="0.83137254901960789" green="0.10588235294117647" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                                             <state key="normal" image="Down Arrow">
@@ -140,7 +141,9 @@
                                             <outlet property="goalTally" destination="qLq-GF-mQL" id="dmd-mZ-Kmu"/>
                                             <outlet property="goalTargetNumber" destination="fUC-bS-QaO" id="NqW-Yi-Kje"/>
                                             <outlet property="tallyDownButton" destination="QFb-XK-aH4" id="JDO-vj-jay"/>
+                                            <outlet property="tallyDownButtonHeight" destination="SFS-du-mKt" id="dJT-OP-QKl"/>
                                             <outlet property="tallyUpButton" destination="vJT-dp-EuH" id="V3f-nG-ZVu"/>
+                                            <outlet property="tallyUpButtonHeight" destination="UP1-5R-a6Z" id="DA2-LL-836"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -171,7 +174,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="uFr-St-arA">
+                    <navigationItem key="navigationItem" title="TallyUp" id="uFr-St-arA">
                         <barButtonItem key="rightBarButtonItem" id="Izy-Us-vg7">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HFz-qg-m3b">
                                 <rect key="frame" x="-23" y="-15" width="133" height="30"/>
