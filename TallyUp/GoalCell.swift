@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GoalCell: UITableViewCell {
+class GoalCell: UITableViewCell, JBBarChartViewDataSource, JBBarChartViewDelegate {
 
     @IBOutlet weak var goalName: UILabel!
     @IBOutlet weak var goalCard: UIView!
@@ -59,10 +59,7 @@ class GoalCell: UITableViewCell {
             cell.buttonsExpanded = false
         }
 
-        if buttonsExpanded {
-            tallyUpButtonHeight.constant -= 30
-            tallyDownButtonHeight.constant -= 30
-        } else {
+        if !buttonsExpanded {
             tallyUpButtonHeight.constant += 30
             tallyDownButtonHeight.constant += 30
         }
@@ -96,5 +93,34 @@ class GoalCell: UITableViewCell {
 
         tallyDownButton.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.03).CGColor
         tallyDownButton.layer.borderWidth = 1
+
+        let barChart = JBBarChartView()
+        barChart.dataSource = self
+        barChart.delegate = self
+        barChart.frame = CGRectMake(0, 100, 150, 50)
+        goalCard.addSubview(barChart)
+        goalCard.sendSubviewToBack(barChart)
+        barChart.reloadData()
+    }
+
+    //
+    // Return the number of bars in the chart.
+    //
+    func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
+        return 8
+    }
+
+    //
+    // Return each data point for each bar in the chart.
+    //
+    func barChartView(barChartView: JBBarChartView!, heightForBarViewAtIndex index: UInt) -> CGFloat {
+        return CGFloat(arc4random() % 20)
+    }
+
+    //
+    // Return the color for each bar in the chart.
+    //
+    func barChartView(barChartView: JBBarChartView!, colorForBarViewAtIndex index: UInt) -> UIColor! {
+        return UIColor(red: 0.902, green: 0.937, blue: 0.957, alpha: 1)
     }
 }
