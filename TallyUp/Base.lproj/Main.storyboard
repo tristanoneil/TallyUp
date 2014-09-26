@@ -153,9 +153,9 @@
                                 </connections>
                             </tableView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYs-JD-ljU">
-                                <rect key="frame" x="0.0" y="-116" width="600" height="180"/>
+                                <rect key="frame" x="0.0" y="-106" width="600" height="170"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="egu-HB-tJt"/>
+                                    <constraint firstAttribute="height" constant="170" id="egu-HB-tJt"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="Rj2-MF-DfC" kind="embed" id="ora-g5-L4C"/>

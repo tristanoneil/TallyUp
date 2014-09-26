@@ -48,9 +48,17 @@ class GoalCell: UITableViewCell {
     }
 
     //
-    // Toggles TallyUp and TallyDown buttons.
+    // Toggles TallyUp and TallyDown buttons for the Goal that gets touched.
+    // Untoggles all other Goal TallyUp and TallyDown buttons.
     //
     func expandTallyButtons() {
+        for subview in superview?.subviews as [AnyObject]! {
+            var cell = subview as GoalCell
+            cell.tallyDownButtonHeight.constant = 0
+            cell.tallyUpButtonHeight.constant = 0
+            cell.buttonsExpanded = false
+        }
+
         if buttonsExpanded {
             tallyUpButtonHeight.constant -= 30
             tallyDownButtonHeight.constant -= 30
