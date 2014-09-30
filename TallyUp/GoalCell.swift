@@ -54,21 +54,21 @@ class GoalCell: UITableViewCell, JBBarChartViewDataSource, JBBarChartViewDelegat
     func expandTallyButtons() {
         for subview in superview?.subviews as [AnyObject]! {
             var cell = subview as GoalCell
-            cell.tallyDownButtonHeight.constant = 0
-            cell.tallyUpButtonHeight.constant = 0
-            cell.buttonsExpanded = false
-        }
 
-        if !buttonsExpanded {
-            tallyUpButtonHeight.constant += 30
-            tallyDownButtonHeight.constant += 30
+            if self == cell && !self.buttonsExpanded {
+                cell.tallyDownButtonHeight.constant = 30
+                cell.tallyUpButtonHeight.constant = 30
+                cell.buttonsExpanded = true
+            } else {
+                cell.tallyDownButtonHeight.constant = 0
+                cell.tallyUpButtonHeight.constant = 0
+                cell.buttonsExpanded = false
+            }
         }
 
         UIView.animateWithDuration(0.1, animations: {
             self.goalCard.layoutIfNeeded()
         })
-
-        buttonsExpanded = !buttonsExpanded
     }
 
     //
