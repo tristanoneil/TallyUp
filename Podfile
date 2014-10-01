@@ -1,4 +1,11 @@
 platform :ios, '8.0'
 
-pod 'Realm'
+target :TallyUp, exclusive: true do
+    pod 'Realm'
+end
+
+target :TallyUpTests, exclusive: true do
+    pod 'Realm/Headers'
+end
+
 pod 'JBChartView'

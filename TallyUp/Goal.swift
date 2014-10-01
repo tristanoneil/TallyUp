@@ -22,8 +22,10 @@ class Goal: RLMObject {
                 return "Today"
             case "Weekly":
                 return "This Week"
-            default:
+            case "Monthly":
                 return "This Month"
+            default:
+                return frequency
         }
     }
 }

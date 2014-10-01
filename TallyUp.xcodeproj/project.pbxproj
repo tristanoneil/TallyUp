@@ -10,6 +10,8 @@
 		6A0FD62E19D19D4600D12306 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0FD62D19D19D4600D12306 /* GoalCell.swift */; };
 		6A2DF0AC19D1CEAD004DC681 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2DF0AB19D1CEAD004DC681 /* Goal.swift */; };
 		6A2DF0B019D1FBB0004DC681 /* GoalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2DF0AF19D1FBB0004DC681 /* GoalListViewController.swift */; };
+		6A2FA1CD19DC3522002AE9A5 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2DF0AB19D1CEAD004DC681 /* Goal.swift */; };
+		6A2FA1CE19DC3525002AE9A5 /* Tally.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C23E419D487B100D85744 /* Tally.swift */; };
 		6A4C23E319D461C200D85744 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C23E219D461C200D85744 /* NewGoalViewController.swift */; };
 		6A4C23E519D487B100D85744 /* Tally.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4C23E419D487B100D85744 /* Tally.swift */; };
 		6A5185849D0241B4B29F9610 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9CB928256D41DE9AE1646F /* libPods.a */; };
@@ -17,7 +19,9 @@
 		6A70520B19CC6E7E00C3B778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A70520919CC6E7E00C3B778 /* Main.storyboard */; };
 		6A70520D19CC6E7E00C3B778 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A70520C19CC6E7E00C3B778 /* Images.xcassets */; };
 		6A70521019CC6E7E00C3B778 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A70520E19CC6E7E00C3B778 /* LaunchScreen.xib */; };
-		6A70521C19CC6E7E00C3B778 /* TallyUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A70521B19CC6E7E00C3B778 /* TallyUpTests.swift */; };
+		6A70521C19CC6E7E00C3B778 /* GoalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A70521B19CC6E7E00C3B778 /* GoalTests.swift */; };
+		83818856A1EF4F61BE50F781 /* libPods-TallyUpTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9087BDAE4FC44E8C878F19DC /* libPods-TallyUpTests.a */; };
+		F984D09E553E4E0E90643634 /* libPods-TallyUp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE536F740F14C0CBF5BF10A /* libPods-TallyUp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		2F9CB928256D41DE9AE1646F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4277F255EFC84ABA935B63E9 /* Pods-TallyUpTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TallyUpTests.xcconfig"; path = "Pods/Pods-TallyUpTests.xcconfig"; sourceTree = "<group>"; };
 		6A0FD62D19D19D4600D12306 /* GoalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		6A2DF0AA19D1CE1F004DC681 /* TallyUpBridingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TallyUpBridingHeader.h; sourceTree = "<group>"; };
 		6A2DF0AB19D1CEAD004DC681 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
@@ -46,8 +51,11 @@
 		6A70520F19CC6E7E00C3B778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6A70521519CC6E7E00C3B778 /* TallyUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TallyUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A70521A19CC6E7E00C3B778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6A70521B19CC6E7E00C3B778 /* TallyUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyUpTests.swift; sourceTree = "<group>"; };
+		6A70521B19CC6E7E00C3B778 /* GoalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTests.swift; sourceTree = "<group>"; };
+		7BC6007CF2D34060ABE50BB4 /* Pods-TallyUp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TallyUp.xcconfig"; path = "Pods/Pods-TallyUp.xcconfig"; sourceTree = "<group>"; };
 		82C4BEB73B5749F1BEE51C1B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		9087BDAE4FC44E8C878F19DC /* libPods-TallyUpTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TallyUpTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAE536F740F14C0CBF5BF10A /* libPods-TallyUp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TallyUp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A5185849D0241B4B29F9610 /* libPods.a in Frameworks */,
+				F984D09E553E4E0E90643634 /* libPods-TallyUp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83818856A1EF4F61BE50F781 /* libPods-TallyUpTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +87,8 @@
 				6A70520119CC6E7E00C3B778 /* Products */,
 				82C4BEB73B5749F1BEE51C1B /* Pods.xcconfig */,
 				EBE22989BED84CD1A06201F8 /* Frameworks */,
+				7BC6007CF2D34060ABE50BB4 /* Pods-TallyUp.xcconfig */,
+				4277F255EFC84ABA935B63E9 /* Pods-TallyUpTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,7 +130,7 @@
 		6A70521819CC6E7E00C3B778 /* TallyUpTests */ = {
 			isa = PBXGroup;
 			children = (
-				6A70521B19CC6E7E00C3B778 /* TallyUpTests.swift */,
+				6A70521B19CC6E7E00C3B778 /* GoalTests.swift */,
 				6A70521919CC6E7E00C3B778 /* Supporting Files */,
 			);
 			path = TallyUpTests;
@@ -136,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				2F9CB928256D41DE9AE1646F /* libPods.a */,
+				BAE536F740F14C0CBF5BF10A /* libPods-TallyUp.a */,
+				9087BDAE4FC44E8C878F19DC /* libPods-TallyUpTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -166,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A70522219CC6E7E00C3B778 /* Build configuration list for PBXNativeTarget "TallyUpTests" */;
 			buildPhases = (
+				DD159EEC22364BC799381611 /* Check Pods Manifest.lock */,
 				6A70521119CC6E7E00C3B778 /* Sources */,
 				6A70521219CC6E7E00C3B778 /* Frameworks */,
 				6A70521319CC6E7E00C3B778 /* Resources */,
+				E600F8A488504A3DB83BEAFD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,7 +267,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-TallyUp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		738E935827CB4DC69AB4286F /* Check Pods Manifest.lock */ = {
@@ -267,6 +283,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DD159EEC22364BC799381611 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E600F8A488504A3DB83BEAFD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-TallyUpTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -289,7 +335,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A70521C19CC6E7E00C3B778 /* TallyUpTests.swift in Sources */,
+				6A2FA1CD19DC3522002AE9A5 /* Goal.swift in Sources */,
+				6A70521C19CC6E7E00C3B778 /* GoalTests.swift in Sources */,
+				6A2FA1CE19DC3525002AE9A5 /* Tally.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +452,7 @@
 		};
 		6A70522019CC6E7E00C3B778 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82C4BEB73B5749F1BEE51C1B /* Pods.xcconfig */;
+			baseConfigurationReference = 7BC6007CF2D34060ABE50BB4 /* Pods-TallyUp.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TallyUp/Info.plist;
@@ -416,7 +464,7 @@
 		};
 		6A70522119CC6E7E00C3B778 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82C4BEB73B5749F1BEE51C1B /* Pods.xcconfig */;
+			baseConfigurationReference = 7BC6007CF2D34060ABE50BB4 /* Pods-TallyUp.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TallyUp/Info.plist;
@@ -428,6 +476,7 @@
 		};
 		6A70522319CC6E7E00C3B778 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4277F255EFC84ABA935B63E9 /* Pods-TallyUpTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -441,12 +490,14 @@
 				INFOPLIST_FILE = TallyUpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = TallyUp/TallyUpBridingHeader.h;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TallyUp.app/TallyUp";
 			};
 			name = Debug;
 		};
 		6A70522419CC6E7E00C3B778 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4277F255EFC84ABA935B63E9 /* Pods-TallyUpTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -456,6 +507,7 @@
 				INFOPLIST_FILE = TallyUpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = TallyUp/TallyUpBridingHeader.h;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TallyUp.app/TallyUp";
 			};
 			name = Release;

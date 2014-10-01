@@ -7,6 +7,7 @@ PODS:
 DEPENDENCIES:
   - JBChartView
   - Realm
+  - Realm/Headers
 
 SPEC CHECKSUMS:
   JBChartView: 50b221ef68d0934f5aea417a369a5b02167848a9
