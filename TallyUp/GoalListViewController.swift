@@ -45,7 +45,7 @@ class GoalListViewController: UIViewController {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GoalCell", forIndexPath: indexPath) as GoalCell
 
-        cell.goal = goals.objectAtIndex(UInt(indexPath.row)) as Goal
+        cell.goal = Goal(object: goals.objectAtIndex(UInt(indexPath.row)))
         cell.goalListViewController = self
         cell.setupCell()
 

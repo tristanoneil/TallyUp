@@ -9,3 +9,4 @@ target :TallyUpTests, exclusive: true do
 end
 
 pod 'JBChartView'
+pod 'DateTools'

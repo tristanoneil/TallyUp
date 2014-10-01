@@ -28,4 +28,46 @@ class Goal: RLMObject {
                 return frequency
         }
     }
+
+    func weekDateRangeForIndex(index: NSInteger) -> DTTimePeriod {
+        let currentDate = NSDate()
+
+        let startDate = currentDate
+            .dateBySubtractingDays(currentDate.weekday() - 1)
+            .dateBySubtractingHours(currentDate.hour())
+            .dateBySubtractingMinutes(currentDate.minute())
+            .dateBySubtractingSeconds(currentDate.second())
+
+        let endDate = currentDate
+            .dateByAddingDays(currentDate.weekday() - 1)
+            .dateBySubtractingHours(currentDate.hour())
+            .dateBySubtractingMinutes(currentDate.minute())
+            .dateBySubtractingSeconds(currentDate.second())
+
+        let dateRange = DTTimePeriod.timePeriodWithStartDate(startDate, endDate: endDate)
+        dateRange.shiftEarlierWithSize(DTTimePeriodSize.Week, amount: index)
+
+        return dateRange
+    }
+
+    func monthDateRangeForIndex(index: NSInteger) -> DTTimePeriod {
+        let currentDate = NSDate()
+
+        let startDate = currentDate
+            .dateBySubtractingDays(currentDate.day() - 1)
+            .dateBySubtractingHours(currentDate.hour())
+            .dateBySubtractingMinutes(currentDate.minute())
+            .dateBySubtractingSeconds(currentDate.second())
+
+        let endDate = currentDate
+            .dateByAddingDays(currentDate.daysInMonth() - currentDate.day())
+            .dateBySubtractingHours(currentDate.hour())
+            .dateBySubtractingMinutes(currentDate.minute())
+            .dateBySubtractingSeconds(currentDate.second())
+
+        let dateRange = DTTimePeriod.timePeriodWithStartDate(startDate, endDate: endDate)
+        dateRange.shiftEarlierWithSize(DTTimePeriodSize.Month, amount: index)
+
+        return dateRange
+    }
 }
